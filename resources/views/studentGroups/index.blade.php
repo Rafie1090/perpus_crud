@@ -36,7 +36,7 @@
                     @csrf
                     @method('DELETE')
         
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger"onclick="return confirm('Mau hapus {{ $studentGroup->rombel }} ?')">Delete</button>
                 </form>
             </td>
         </tr>

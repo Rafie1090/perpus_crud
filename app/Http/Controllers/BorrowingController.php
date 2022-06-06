@@ -6,6 +6,7 @@ use App\Models\Borrowing;
 use App\Models\Book;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use carbon\carbon;
 
 class BorrowingController extends Controller
 {
@@ -31,7 +32,7 @@ class BorrowingController extends Controller
     {
         $books = Book::all();
         $students = Student::all(); 
-        return view('borrowings.create',compact('books', $books, 'students', $students));
+        return view('borrowings.create',compact('books','students'));
     }
 
     /**
@@ -42,15 +43,14 @@ class BorrowingController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_peminjam'=>'required',
-            'judul_buku'=>'required',
-            'tgl_pinjam'=>'required',
-            'tgl_kembali'=>'required',
-            'ket'=>'required'
+    
+        Borrowing::create([
+                'nama_peminjam'=>$request ->nama_peminjam,
+                'judul_buku'=>$request ->judul_buku,
+                'tgl_pinjam'=> carbon::now(),
+                'tgl_kembali'=>$request ->tgl_kembali,
+                'ket'=> $request->ket
         ]);
-
-        Borrowing::create($request->all());
         return redirect()->route('borrowings.index')
                         ->with('success','Berhasil Menyimpan !');
     }

@@ -14,7 +14,7 @@
     <br>
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>Whoops!</strong> Ada beberapa masalah dengan input Anda.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -40,16 +40,11 @@
                 <div class="form-group">
                     <strong>Judul buku</strong>
                     <select class="form-control" name="judul_buku">
+                        <option value="">--pilih--</option>
                         @foreach($books as $book)
                         <option value="{{$book->judul}}">{{$book->judul}}</option>
                         @endforeach
                     </select>            
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Tanggal Pinjam</strong>
-                    <input type="date" name="tgl_pinjam" class="form-control" placeholder="Tanggal Pinjam">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

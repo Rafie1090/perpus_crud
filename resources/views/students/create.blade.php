@@ -30,7 +30,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Nis:</strong>
-                    <input type="text" name="nis" class="form-control" placeholder="NIS">
+                    <input type="number" min="0" name="nis" class="form-control" placeholder="NIS"onkeydown="return /[0-9 backsapce]/i.test(event.key)">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -43,6 +43,7 @@
                 <div class="form-group">
                     <strong>Rombel:</strong>
                     <select class="form-control" name="rombel">
+                        <option value="">--pilih--</option>
                         @foreach($studentGroups as $studenGroup)
                         <option value="{{$studenGroup->rombel}}">{{$studenGroup->rombel}}</option>
                         @endforeach
@@ -53,6 +54,7 @@
                 <div class="form-group">
                     <strong>Rayon:</strong>
                     <select class="form-control" name="rayon">
+                        <option value="">--pilih--</option>
                         @foreach($rayons as $rayon)
                         <option value="{{$rayon->rayon}}">{{$rayon->rayon}}</option>
                         @endforeach

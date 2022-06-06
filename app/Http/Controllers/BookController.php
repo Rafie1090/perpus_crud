@@ -29,14 +29,14 @@ class BookController extends Controller
     public function create()
     {
         $publishers = Publisher::all(); 
-        return view('books.create',compact('publishers', $publishers));
+        return view('books.create',compact('publishers', ));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response 
      */
     public function store(Request $request) 
     {

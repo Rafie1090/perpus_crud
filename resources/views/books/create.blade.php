@@ -43,6 +43,7 @@
             <div class="form-group">
                 <strong>Penerbit</strong>
                 <select class="form-control" name="penerbit">
+                <option value="">--pilih--</option>
                     @foreach($publishers as $publisher)
                     <option value="{{$publisher->penerbit}}">{{$publisher->penerbit}}</option>
                     @endforeach

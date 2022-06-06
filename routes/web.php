@@ -20,7 +20,7 @@ use App\Http\Controllers\BorrowingController;
 */
 
 Route::get('/', function () {
-    return view('layout.master');
+    return view('auth.login');
 });
 Route::resource('students', StudentController::class);
 Route::resource('studentGroups', StudentGroupController::class);
@@ -28,3 +28,23 @@ Route::resource('rayons', RayonController::class);
 Route::resource('publishers', PublisherController::class);
 Route::resource('books', BookController::class);
 Route::resource('borrowings', BorrowingController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

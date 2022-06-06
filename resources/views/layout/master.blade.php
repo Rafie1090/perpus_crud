@@ -26,7 +26,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-warning sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -37,11 +37,11 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      {{-- <li class="nav-item active">
         <a class="nav-link" href="#">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
-      </li>
+      </li> --}}
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -79,17 +79,23 @@
       </div>
 
        <!-- Nav Item - Register -->
-       <li class="nav-item">
+       {{-- <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Register</span></a>
-      </li>
+      </li> --}}
 
       <!-- Nav Item - Login -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Logout</span></a>
+        <a href="{{ route('logout') }}"
+                                       onclick="var cek = confirm('{{ auth::user()->name }} {{ __('Anda ingin Log out?') }}');event.preventDefault();
+                                                     if(cek){document.getElementById('logout-form').submit(); } ">
+                                        {{ __('') }} <br><center><button class="btn btn-danger">Logout</button></center></i>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
       </li>
 
       <!-- Divider -->
@@ -117,14 +123,6 @@
       </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
       <!-- End of Footer -->
 
     </div>

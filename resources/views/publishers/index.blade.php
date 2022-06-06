@@ -1,4 +1,3 @@
-```php
 @extends('layout.master')
      
 @section('content')
@@ -37,7 +36,7 @@
                     @csrf
                     @method('DELETE')
         
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger"onclick="return confirm('Mau hapus {{ $publisher->penerbit }} ?')">Delete</button>
                 </form>
             </td>
         </tr>
@@ -47,4 +46,3 @@
     {!! $publishers->links() !!}
         
 @endsection
-```
